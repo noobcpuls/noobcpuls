@@ -1,13 +1,214 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  /* border: 1px solid black; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+.App {
+  height: 1600px;
+  width: 100vw;
+  display: grid;
+  grid-template-areas:
+    "head"
+    "lt"
+    "main"
+    "lb"
+    "foot";
+  grid-template-rows: clamp(3rem, 8%, 6rem) 1fr 75% 1fr clamp(6rem, 15%, 12rem);
+}
+
+.navbar {
+  width: 100%;
+  grid-area: head;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header {
+  margin: 1rem 0;
+  list-style: none;
+  display: inline-flex;
+}
+
+.header .link {
+  display: inline;
+  margin: 0 0.6rem;
+  padding: 0.8rem;
+  transition: all 0.4s ease;
+  border-radius: 0.2rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+}
+
+.header .link:hover {
+  background: #8d39fa;
+  color: #fff;
+}
+
+.header .link.active {
+  background: #8d39fa;
+  color: #fff;
+}
+
+.navbar .navbar-logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.navbar .navbar-logo i {
+  font-size: 2.8rem;
+  color: #8d39fa;
+}
+
+.navbar .navbar-logo #logo-text {
+  margin: 0 1.2rem;
+  font-weight: 600;
+  font-family: "Dancing Script", serif;
+  color: #000;
+}
+
+.line-top {
+  grid-area: lt;
+}
+
+.main-content {
+  height: 100%;
+  grid-area: main;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.line-bottom {
+  grid-area: lb;
+}
+
+.footer {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 80%;
+  grid-area: foot;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer .visitor {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.footer .visitor h1 {
+  margin: 0.2rem;
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
+
+.footer .visitor p {
+  margin: 0.2rem;
+  font-size: 2rem;
+  margin: 0.5rem;
+  border-bottom: 4px solid#8d39fa;
+  text-align: center;
+}
+
+.footer .developer-info {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer .developer-info .info ul {
+  margin: 0.2rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.footer .developer-info .info ul li {
+  padding: 0.4rem;
+  margin: 0.4rem;
+  font-size: 0.8rem;
+  color: #cacacabe;
+}
+
+.footer .developer-info .info ul #goo {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.footer .developer-info .info ul #goo.active {
+  opacity: 1;
+}
+
+.footer .developer-info .mail {
+  margin: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.footer .developer-info .mail p {
+  padding: 0.2rem;
+  margin: 0 2rem;
+  color: #444444be;
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+
+.footer .developer-info .mail #foo:hover {
+  background: #444444be;
+  border-radius: 0.4rem;
+  color: #fff;
+}
+
+.footer .developer-info .mail #email {
+  display: none;
+}
+
+.footer .developer-info .mail #email.active {
+  display: block;
+}
+
+@media (max-width: 425px) {
+  .navbar .navbar-logo {
+    display: none;
+  }
+
+  .footer {
+  }
+}
+
+@media (max-width: 1024px) {
+  * {
+    font-size: 12px;
+  }
+  .navbar .navbar-logo #logo-text {
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-logo i {
+    font-size: 2rem;
+  }
+
+  .header .link {
+    font-size: 0.8rem;
+  }
 }
